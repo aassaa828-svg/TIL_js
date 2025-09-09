@@ -1,0 +1,28 @@
+// 외부 scss @use(@import) 불러오기
+@use './common.scss' as *;
+
+// 변수 적용 선택자
+main {
+    width:500px; /* 개별속성값 */
+    @include flex-center; /* 공통속성 */
+    @include bg1;/* 공통속성과 값은 @mixin -> @include */
+    background-image:url(); /* 개별속성값은 */
+    h1 {color:$color-blue;}
+    p {
+        color:$color-red;
+        &:hover {color:$color-blue;}
+    }
+    .box {
+        background-color:#ff0;
+        input {
+            &:hover {background-color:#aaa;}
+            &[type=text] {border:1px solid $color-blue;}
+            &+span {background-color:$color-red;}
+        }
+        span {
+            background-color:#222;
+            color:#fff;
+            &:nth-child(3) {border:5px solid blue;}
+        }
+    }
+}

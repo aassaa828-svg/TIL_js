@@ -1,0 +1,23 @@
+// 반복값을 가진 변수
+$color-red:#f00;
+$color-blue:#00f;
+// 반복속성과 값을 2개 이상 가진 변수 그룹 @mixin
+@mixin flex-row {display:flex; flex-flow:row nowrap;}
+@mixin flex-col {display:flex; flex-flow:column nowrap;}
+@mixin flex-center {
+    display:flex; flex-flow:row nowrap;
+    justify-content:center; align-items:center;
+}
+@mixin flex-between {
+    display:flex; flex-flow:row nowrap;
+    justify-content:space-between; align-items:space-between;
+}
+@mixin textElipsis_oneline {/* 말줄임(...)그룹 */
+    white-space:nowrap;
+    overflow:hidden; text-overflow:hidden;
+}
+@mixin bg1 {
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-position:center;
+}
