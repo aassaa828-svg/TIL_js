@@ -1,0 +1,58 @@
+//basic2.scss
+$main-color:aqua;
+$sub-color:yellow;
+/* ================================================================== */
+@mixin flex-align-center {
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+@mixin font-mainmenu {
+    font-size:2rem;
+    font-weight:600;
+    letter-spacing:-2%;
+}
+@mixin font-submenu {
+    font-size:1.5rem;
+    font-weight:500;
+    letter-spacing:-2%;
+}
+@mixin after_design {
+    content:''; display:block; position:absolute;
+    background-color:#000;
+}
+/* ====================================================================== */
+header {
+    @include flex-align-center;
+    flex-flow:row nowrap;
+    background-color:$main-color;
+    h1 {color:$sub-color;}
+    nav {
+        .gnb {
+            @include flex-align-center;
+            flex-flow:column nowrap;
+            > li {
+                > a {@include font-mainmenu();
+                    &:hover {color:$sub-color;}
+                    &::after {
+                        @include after_design();
+                        width:10px; height:10px;
+                        left:0; top:0;
+                    }
+                }
+                .lnb {
+                    li {
+                        a {@include font-submenu();
+                            &:hover {color:$sub-color;}
+                            &::after {
+                                @include after_design();
+                                width:20px; height:15px;
+                                right:0; top:0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
