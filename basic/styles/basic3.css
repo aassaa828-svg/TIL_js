@@ -1,0 +1,25 @@
+#silde_contanier {
+  background-color: aqua;
+  width: 800px;
+  overflow: hidden;
+}
+#silde_contanier .silde_wrap {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  width: 1600px;
+  transform: translateX(-800px);
+}
+#silde_contanier .silde_wrap .silde {
+  width: 800px;
+  height: 350px;
+}
+#silde_contanier .silde_wrap .silde1 {
+  border: 1px solid red;
+}
+#silde_contanier .silde_wrap .silde2 {
+  border: 1px solid blue;
+}
+
+/*# sourceMappingURL=basic3.css.map */

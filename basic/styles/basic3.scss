@@ -1,0 +1,26 @@
+@mixin silde_w_h_pc {
+    width:800px; height:350px;
+    // border-width:1px;
+    // border-style:solid;
+}
+@mixin flex_row {
+    display:flex; flex-flow:row nowrap;
+    justify-content:flex-start; align-items:center;
+}
+$red-color:red;
+$blue-color:blue;
+
+#silde_contanier {
+    background-color:aqua;
+    width:800px; overflow:hidden;
+    .silde_wrap {
+        @include flex_row();
+        width:calc(800px*2);
+        transform:translateX(-800px);
+        .silde {
+            @include silde_w_h_pc();
+        }
+        .silde1 {border:1px solid $red-color;}
+        .silde2 {border:1px solid $blue-color;}
+    }
+}
