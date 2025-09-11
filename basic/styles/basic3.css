@@ -1,9 +1,9 @@
-#silde_contanier {
+#slide_container {
   background-color: aqua;
   width: 800px;
   overflow: hidden;
 }
-#silde_contanier .silde_wrap {
+#slide_container .slide_wrap {
   display: flex;
   flex-flow: row nowrap;
   justify-content: flex-start;
@@ -11,14 +11,14 @@
   width: 1600px;
   transform: translateX(-800px);
 }
-#silde_contanier .silde_wrap .silde {
+#slide_container .slide_wrap .slide {
   width: 800px;
   height: 350px;
 }
-#silde_contanier .silde_wrap .silde1 {
+#slide_container .slide_wrap .slide1 {
   border: 1px solid red;
 }
-#silde_contanier .silde_wrap .silde2 {
+#slide_container .slide_wrap .slide2 {
   border: 1px solid blue;
 }
 

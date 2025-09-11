@@ -7,12 +7,35 @@
     <link rel="stylesheet" href="./styles/reset.css">
     <link rel="stylesheet" href="./styles/basic3.css">
     <script src="./scripts/basic3.js" defer></script>
+    <script src="./scripts/basic3_BOM.js" defer></script>
 </head>
 <body>
-    <div id="silde_contanier">
-        <div class="silde_wrap">
-            <div class="silde silde1">슬라이드1</div>
-            <div class="silde silde2">슬라이드2</div>
+    <form action="#" method="post" id="loginFrm">
+        <input type="text" name="id" id="id" placeholder="아이디를 입력하세요">
+        <input type="text" name="name" id="name" placeholder="이름을 입력하세요">
+        <input type="password" name="pw" id="pw" placeholder="비밀번호를 입력하세요">
+        <button onclick="userInfo()" type="button">로그인</button>
+    </form>
+    <nav id="main">
+        <ul class="gnb">
+            <li><a href="#">menu1</a></li>
+            <li><a href="#">menu2</a></li>
+            <li><a href="#">menu3</a></li>
+            <li><a href="#">menu4</a></li>
+        </ul>
+    </nav>
+    <div class="test">
+        <button onclick="alert('결제완료되었습니다.')">결제확인</button>
+        <button onclick="alert('장바구니 담기 완료')">장바구니</button>
+        <button onclick="window.print()">인쇄하기</button>
+        <button onclick="window.open('https://google.com')">인증하기</button>
+        <button onclick="naverLink()">네이버인증</button>
+    </div>
+    <!-- div#slide_container>div.slide_wrap>div.slide.slide1+div.slide.slide2 -->
+    <div id="slide_container">
+        <div class="slide_wrap">
+            <div class="slide slide1">슬라이드1</div>
+            <div class="slide slide2">슬라이드2</div>
         </div>
     </div>
 </body>
