@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom 활용</title>
+    <link rel="stylesheet" href="./styles/reset.css">
+    <script src="./scripts/dom1.js" defer></script>
+</head>
+<body>
+    <main>
+        <section><!-- 검색용 -->
+            <input type="search" name="s" id="s" placeholder="검색어를 입력하세요">
+            <button type="button" id="search_btn">검색</button>
+        </section>
+        <section><!-- 쇼핑몰 수량 증감 -->
+            <input type="text" name="num" id="num" value="1">
+            <button type="button" id="cart_btn">장바구니</button>
+        </section>
+    </main>
+    <div class="box">
+        <button type="button" id="order">주문하기</button>
+        <button type="button" id="cart">장바구니 담기</button>
+    </div>
+    <div class="id_pw">
+        <button type="button" class='login' id="id">아이디 중복확인</button>
+        <button type="button" class='login' id="pw">비밀번호 중복확인</button>
+    </div>
+    <textarea name="review" id="review"></textarea>
+    <article>
+        <button type="button" class="bg_btn1">배경1</button>
+        <button type="button" class="bg_btn2">배경2</button>
+        <button type="button" class="bg_btn3">배경3</button>
+        <p>현재 배경색상 : #eee</p>
+    </article>
+</body>
+</html>
+
+

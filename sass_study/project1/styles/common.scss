@@ -1,0 +1,20 @@
+$color-gray:#ddd;
+$color-balck:#000;
+$color-naver:#03c75a;
+@mixin flex-row{
+    display:flex; flex-flow:row nowrap;
+    justify-content:flex-start;
+    align-items:center;
+}
+@mixin flex-col {
+    display:flex; flex-flow:column nowrap;
+    justify-content:space-between;
+    align-items:center;
+}
+@mixin m-width {
+    min-width:320px;
+    max-width:1240px;
+    margin:0 auto;
+}
+@mixin padding-t {padding:0 80px;}
+@mixin padding-m {padding:0 15px;}

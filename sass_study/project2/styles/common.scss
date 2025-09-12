@@ -1,0 +1,32 @@
+$bg-color : #ffffd4;
+$color-black : #222;
+$color-white : #fff;
+@mixin pc_w_h {
+    max-width:1360px;
+    min-width:320px;
+    height:750px;
+    margin:50px auto 0;
+    padding:60px;
+} 
+@mixin flex-row{
+    display:flex; flex-flow:row nowrap;
+    justify-content:flex-start;
+    align-items:center;
+}
+@mixin bg-cover {
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-position:center;
+}
+@mixin slide-btn {
+    display:inline-block;
+    width:250px; line-height:60px;
+    text-align:center;
+    border-radius:40px;
+    font-weight:600; font-size:1.1rem;
+}
+@mixin pst-ab {
+    position:absolute;
+    left:0; top:0;
+    width:100%; height:max-content;
+}

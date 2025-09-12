@@ -1,0 +1,13 @@
+// main.scss
+// 외부 scss 적용 순서대로 @use 연결
+//@use '경로' as *
+//as * 변수가 등록된 scss 파일이 아니면 생략
+
+@use './common.scss' as *;
+@use './index.scss';
+@use './responsive.scss';
+
+//@use './common.scss' as *;
+//as com; -> $red 변수 사용 -> com.$red
+//as c; -> $red 변수 사용 -> c.$red
+//as *; -> $red 변수 사용 -> $red

@@ -1,0 +1,8 @@
+//반응형 scss
+@use './common.scss' as *;
+
+@media screen and (max-width:1000px){
+    #tab_container {
+        background-color:$color-gray;
+    }
+}

@@ -1,0 +1,15 @@
+@use './common.scss' as co;
+
+#tab_container {
+    background-color:co.$color-naver;
+    .tab_title {
+        a {
+            &:hover {}
+        }
+    }
+}
+#tab_contents {
+    .tab {}
+    .tab1 {}
+    .tab2 {}
+}

@@ -1,0 +1,10 @@
+#tab_container {
+  background-color: #03c75a;
+}
+@media screen and (max-width: 1000px) {
+  #tab_container {
+    background-color: #ddd;
+  }
+}
+
+/*# sourceMappingURL=main.css.map */
