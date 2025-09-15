@@ -1,0 +1,20 @@
+$font-size-l:1.2rem;
+$font-size-m:0.9rem;
+$font-size-s:0.875rem;
+$gray:#aaa;
+@mixin img-w100 {width:100%; height:max-content;}
+@mixin flex-row {
+    display:flex; flex-flow:row nowrap;
+    justify-content:flex-start; align-items:center;
+}
+@mixin flex-col {
+    display:flex; flex-flow:column nowrap;
+    justify-content:center; align-items:flex-start;
+}
+@mixin bg {
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-position:center;
+}
+@mixin icon20 {width:20px; height:20px;}
+@mixin icon24 {width:24px; height:24px;}
