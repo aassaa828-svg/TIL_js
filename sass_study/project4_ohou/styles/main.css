@@ -1,0 +1,392 @@
+@charset "UTF-8";
+/* 32 */
+/* 24 */
+/* 20 */
+/* 16 */
+/* 14 */
+#wrap header {
+  height: 52px;
+  padding: 0 80px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid #bdbdbd;
+  border-left: 0;
+  border-right: 0;
+}
+#wrap header a {
+  font-size: 1.25rem;
+}
+#wrap main {
+  max-width: 1156px;
+  min-width: 320px;
+  margin: 0 auto;
+}
+#wrap main .path {
+  padding: 14px 0;
+}
+#wrap main .path a {
+  color: #757575;
+  font-size: 0.875rem;
+  position: relative;
+  padding-right: 12px;
+}
+#wrap main .path a::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  content: ">";
+  right: 0;
+  left: auto;
+  top: 3px;
+  font-size: 0.875rem;
+}
+#wrap main .path a:last-child::after {
+  display: none;
+}
+#wrap main .container {
+  gap: 24px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  align-items: flex-start;
+}
+#wrap main .container .overview_img {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  align-items: flex-start;
+  gap: 10px;
+}
+#wrap main .container .overview_img .thumnail {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 8px;
+}
+#wrap main .container .overview_img .thumnail a {
+  width: 56px;
+  height: 56px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+#wrap main .container .overview_img .thumnail img {
+  width: 100%;
+  height: auto;
+}
+#wrap main .container .overview_img .overview {
+  width: 559px;
+  height: 559px;
+}
+#wrap main .container .overview_img .overview img {
+  width: 100%;
+  height: auto;
+}
+#wrap main .container .contents {
+  max-width: 460px;
+}
+#wrap main .container .contents > * {
+  margin-bottom: 25px;
+}
+#wrap main .container .contents svg {
+  fill: #0aa5ff;
+}
+#wrap main .container .contents .brand { /* 상단 브랜드명 */ }
+#wrap main .container .contents .brand a {
+  font-size: 1rem;
+}
+#wrap main .container .contents .product_info { /* 상품명 + 스크랩, 공유 버튼 */
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  justify-content: space-between;
+}
+#wrap main .container .contents .product_info h1 {
+  font-size: 1.5rem;
+  margin-right: 92px;
+}
+#wrap main .container .contents .product_info .right_icon {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 5px;
+  align-items: flex-start;
+}
+#wrap main .container .contents .product_info .right_icon .scrap {
+  background-color: #fff;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+#wrap main .container .contents .product_info .right_icon .scrap .bookmark {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  fill: #fff;
+  stroke: #828c94;
+}
+#wrap main .container .contents .product_info .right_icon .scrap span {
+  font-size: 0.875rem;
+}
+#wrap main .container .contents .product_info .right_icon .share {
+  background-color: #fff;
+}
+#wrap main .container .contents .product_info .right_icon .share .share_icon {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  fill: #fff;
+  stroke: #828c94;
+}
+#wrap main .container .contents .review { /* 리뷰 */
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 5px;
+}
+#wrap main .container .contents .review .score {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 2px;
+}
+#wrap main .container .contents .review .score .star {
+  width: 14px;
+  height: 14px;
+  display: inline-block;
+}
+#wrap main .container .contents .review .number {
+  color: #0aa5ff;
+  font-weight: 600;
+  font-size: 1rem;
+}
+#wrap main .container .contents .price_wrap { /* 가격 정보 */ }
+#wrap main .container .contents .price_wrap .sale_original_price .original {
+  color: #828c94;
+}
+#wrap main .container .contents .price_wrap .sale_original_price .price_info {
+  position: relative;
+}
+#wrap main .container .contents .price_wrap .sale_original_price .price_info .info_icon {
+  transform: translateY(4px);
+  width: 14px;
+  fill: #fff;
+  stroke: #000;
+}
+#wrap main .container .contents .price_wrap .sale_original_price .price_info .info {
+  display: none;
+  width: 300px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  left: 50%;
+  top: 20px;
+  transform: translateX(-50%);
+  padding: 10px;
+  color: #757575;
+  font-size: 1rem;
+  line-height: 1.4;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0 5px 7px rgba(0, 0, 0, 0.15);
+}
+#wrap main .container .contents .price_wrap .total_price .price {
+  font-size: 2rem;
+  font-weight: 700;
+}
+#wrap main .container .contents .price_wrap .total_price .span {
+  font-size: 1.5rem;
+}
+#wrap main .container .contents .price_wrap .total_price img {
+  height: 20px;
+}
+#wrap main .container .contents .benefit_ship { /* 혜택 + 배송 */
+  display: grid;
+  grid-template-rows: repeat(6, 1fr);
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  grid-template-columns: 45px 1fr;
+  grid-template-rows: 35px 1fr;
+  grid-template-areas: "title1 cont1" "title2 cont2" ". cont3" ". cont4" ". cont5" ". cont6";
+  margin-bottom: 25px;
+}
+#wrap main .container .contents .benefit_ship dt:nth-of-type(1) {
+  grid-area: title1;
+}
+#wrap main .container .contents .benefit_ship dt:nth-of-type(2) {
+  grid-area: title2;
+}
+#wrap main .container .contents .benefit_ship dd:nth-of-type(1) {
+  grid-area: cont1;
+}
+#wrap main .container .contents .benefit_ship dd:nth-of-type(2) {
+  grid-area: cont2;
+}
+#wrap main .container .contents .benefit_ship dd:nth-of-type(3) {
+  grid-area: cont3;
+}
+#wrap main .container .contents .benefit_ship dd:nth-of-type(4) {
+  grid-area: cont4;
+}
+#wrap main .container .contents .benefit_ship dd:nth-of-type(5) {
+  grid-area: cont5;
+}
+#wrap main .container .contents .benefit_ship dd:nth-of-type(6) {
+  grid-area: cont6;
+}
+#wrap main .container .contents .benefit_ship dd em {
+  font-weight: bold;
+}
+#wrap main .container .contents .benefit_ship .ship_info {
+  width: max-content;
+  padding: 10px 15px;
+  border-radius: 7px;
+  background: #dadce0;
+}
+#wrap main .container .contents .benefit_ship .ship_info em {
+  font-weight: bold;
+}
+#wrap main .container .contents #orderFrm {
+  padding: 25px 0 30px;
+}
+#wrap main .container .contents #orderFrm .product_opt { /* 색상 + 사이즈 선택칸 */
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  align-items: flex-start;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+#wrap main .container .contents #orderFrm .product_opt select {
+  background-repeat: no-repeat;
+  appearance: none;
+  width: 100%;
+  height: 40px;
+  border-radius: 5px;
+  border: 1px solid #0aa5ff;
+  padding-left: 14px;
+  font-size: 14px;
+  background-position: 95% center;
+  background-size: 14px;
+  background-image: url(https://cdn-icons-png.flaticon.com/128/3916/3916864.png);
+}
+#wrap main .container .contents #orderFrm .product_opt #size_select {
+  border: 1px solid #bdbdbd;
+}
+#wrap main .container .contents #orderFrm .order_list { /* 선택한 상품 정보 (주문수량) */
+  background-color: #dadce0;
+  padding: 10px;
+  height: max-content;
+  position: relative;
+  margin-bottom: 7px;
+}
+#wrap main .container .contents #orderFrm .order_list .close {
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: #dadce0;
+  left: auto;
+  right: 10px;
+  top: 10px;
+}
+#wrap main .container .contents #orderFrm .order_list .num_price {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 20px;
+}
+#wrap main .container .contents #orderFrm .order_list .num_price .num {
+  background: #fff;
+  display: inline-block;
+  padding: 5px 10px;
+}
+#wrap main .container .contents #orderFrm .order_list .num_price .num button {
+  background-color: #fff;
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+#wrap main .container .contents #orderFrm .order_list .num_price .num #order_num {
+  text-align: center;
+}
+#wrap main .container .contents #orderFrm .order_list .num_price .num #order_num::-webkit-outer-spin-button, #wrap main .container .contents #orderFrm .order_list .num_price .num #order_num::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+#wrap main .container .contents #orderFrm .order_list .num_price .num #order_num {
+  width: 30px;
+}
+#wrap main .container .contents #orderFrm .order_list .num_price .price {
+  font-weight: 600;
+}
+#wrap main .container .contents #orderFrm .order_price { /* 주문금액 */
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  justify-content: space-between;
+}
+#wrap main .container .contents #orderFrm .order_price h2 {
+  transform: translateY(3px);
+  font-size: 1rem;
+}
+#wrap main .container .contents #orderFrm .order_price .price {
+  font-size: 1.25rem;
+}
+#wrap main .container .contents #orderFrm .order_price .price em {
+  font-weight: 600;
+  font-size: 1.25rem;
+}
+#wrap main .container .contents #orderFrm .order_btn { /* 장바구니 + 바로구매 버튼 */
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 6px;
+  margin: 10px 0 0;
+}
+#wrap main .container .contents #orderFrm .order_btn button {
+  width: 100%;
+  line-height: 57px;
+  padding: 0 20px;
+  border-radius: 5px;
+  border: 1px solid #0aa5ff;
+}
+#wrap main .container .contents #orderFrm .order_btn #cart_btn {
+  background-color: #fff;
+  color: #0aa5ff;
+}
+#wrap main .container .contents #orderFrm .order_btn #buy_btn {
+  background-color: #0aa5ff;
+  color: #fff;
+}
+
+@media screen and (max-width: 1000px) {
+  #wrap main .path {
+    padding: 14px 80px;
+  }
+  #wrap main .container {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    align-items: center;
+    gap: 20px;
+  }
+}
+
+/*# sourceMappingURL=main.css.map */

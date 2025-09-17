@@ -1,9 +1,9 @@
 // common.scss
-$font-size-xl:;
-$font-size-l:;
-$font-size-m:;
-$font-size-s:;
-$font-size-xs:;
+$font-size-xl:2rem; /* 32 */
+$font-size-l:1.5rem; /* 24 */
+$font-size-m:1.25rem; /* 20 */
+$font-size-s:1rem; /* 16 */
+$font-size-xs:0.875rem; /* 14 */
 $color-point:#0aa5ff;
 $color-black:#000;
 $color-white:#fff;
@@ -12,16 +12,39 @@ $color-gray-light-lv2:#bdbdbd;
 $color-gray-light-lv3:#dadce0;
 $color-gray-dark:#292929;
 $color-gray-medium:#757575;
+@mixin test-bg1 {background-color:aqua;}
+@mixin test-bg2 {background-color:lime;}
 @mixin content-w {max-width:1156px; min-width:320px; margin:0 auto;}
 @mixin flex-row {
     display:flex; flex-flow:row nowrap;
+    justify-content:flex-start; align-items:center;
 }
 @mixin flex-col {
     display:flex; flex-flow:column nowrap;
+    justify-content:flex-start; align-items:center;
 }
-@mixin grid {display:grid;}
-@mixin icon24 {}
-@mixin icon20 {}
-@mixin icon18 {}
-@mixin icon14 {}
-@mixin cart_buy_btn {}
+@mixin grid-6-2 {
+    display:grid;
+    grid-template-rows: repeat(6, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+}
+
+@mixin img100Percent {
+    width:100%; height:auto;
+}
+@mixin icon24 {width:24px; height:24px; display:inline-block;}
+@mixin icon20 {width:20px; height:20px; display:inline-block;}
+@mixin icon18 {width:18px; height:18px; display:inline-block;}
+@mixin icon14 {width:14px; height:14px ;display:inline-block;}
+@mixin thumnail {width:56px; height:56px;}
+@mixin thumnail_big {width:559px; height:559px;}
+@mixin cart_buy_btn {
+    width:100%; line-height:57px; padding:0 20px; border-radius:5px;
+}
+@mixin after_before {
+    content:''; display:block; position:absolute; left:0; top:0;
+}
+@mixin bg {
+    background-repeat:no-repeat;
+}
+@mixin pst-ab {position:absolute; left:0; top:0;}

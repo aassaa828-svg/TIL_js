@@ -1,0 +1,12 @@
+@use './common.scss' as *;
+
+@media screen and (max-width:1000px){
+    #wrap {
+        main {
+            .path {padding:14px 80px;}
+            .container {
+                @include flex-col; align-items:center; gap:20px;
+            }
+        }
+    }
+}
