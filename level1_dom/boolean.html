@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boolean | 조건문과 논리데이터</title>
+    <link rel="stylesheet" href="./styles/reset.css">
+    <script src="./scripts/boolean_common.js"></script>
+    <script src="./scripts/boolean.js" defer></script>
+</head>
+<body>
+    <section class="everland">
+        <h1>에버랜드 놀이기구 탑승조건 확인</h1>
+        <p>나이를 작성하고 버튼을 누르면 탑승조건을 확인할 수 있어요!</p>
+        <input type="text" name="age" id="age" placeholder="나이">
+        <button type="button" id="age_btn">탑승조건확인</button>
+        <p class="result"><!-- 출력 메세지 위치 --></p>
+    </section>
+    <section class="print">
+        <button type="button" id="print_btn">
+            <img src="https://cdn-icons-png.flaticon.com/128/684/684831.png" alt="인쇄하기">
+        </button>
+    </section>
+    <section class="login">
+        <!-- 네이버 로그인 화면 -->
+        <a href="./boolean_mail.html" class="mail">메일로 이동</a>
+        <form action="#" method="post" id="loginfrm">
+            <input type="text" name="" id="user_id" placeholder="아이디">
+            <input type="password" name="" id="user_pw" placeholder="비밀번호">
+            <button type="button" id="login_btn">로그인</button>
+            <p class="error"></p>
+        </form>
+    </section>
+</body>
+</html>

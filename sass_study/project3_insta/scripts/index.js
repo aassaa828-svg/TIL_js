@@ -44,4 +44,3 @@ instaPhoto.addEventListener('dblclick',()=>{
 instaPhoto.addEventListener('mouseout',()=>{
     volumeIcon.style.opacity = 0;
 })
-

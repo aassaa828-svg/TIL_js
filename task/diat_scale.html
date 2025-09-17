@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>적정체중 계산기</title>
+    <link rel="stylesheet" href="./styles/diat_scale_reset.css">
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css" />
+    <link rel="stylesheet" href="./styles/diat_scale.css">
+    <script src="./scripts/diat_scale.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <h1>적정체중 계산기</h1>
+    <div class="input_box">
+        <label for="height">키(cm) :</label>
+        <input type="number" id="height" placeholder="예: 170">
+    </div>
+    <div class="input_box">
+        <label for="weight">몸무게(kg) :</label>
+        <input type="number" id="weight" placeholder="예: 65">
+    </div>
+        <button id="calc_btn">계산하기</button>
+    <div id="result" class="result"></div>
+</div>
+</body>
+</html>

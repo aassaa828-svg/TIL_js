@@ -1,0 +1,68 @@
+body {
+    font-family: Pretendard, sans-serif;
+    background:url(../images/kakao.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background: #FBE8A6;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    width: 320px;
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-weight:700;
+    font-size: 1.4rem;
+    color: #5C4033;
+}
+
+.input_box {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+label {
+    font-size: 0.9rem;
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+button {
+    background: #C49A6C;
+    color: #fff;
+    border: none;
+    padding: 12px;
+    width: 100%;
+    font-size: 1rem;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+button:hover {
+    background: #A67C52;
+}
+
+.result {
+    margin-top: 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #D94F70;
+}
