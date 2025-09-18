@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button type="button" id="loginBtn">로그인</button>
+    <button type="button" id="logoutBtn">로그아웃</button>
+    <p class="result"><!-- 로그인 상태 출력 메세지 위치 --></p>
+    <script>
+        // 내부스크립트
+        // 1. 초기상태(로그아웃)
+        localStorage.setItem('isLogin','false')
+
+        const loginBtn=document.querySelector('#loginBtn')
+        const resultP = document.querySelector('.result')
+        console.log(loginBtn, resultP)
+        // 2. 로그인 버튼 클릭 시 로그인 메세지 P 출력
+        loginBtn.addEventListener('click',()=>{
+            // 상태변경 로컬스트리지
+            localStorage.setItem('isLogin','true') // 상태변경(로컬스트리지)
+            resultStatus(); // 변경된 상태값에 따라 메시지 출력
+        })
+        // 3. 로그아웃 버튼 클릭 시 로그아웃 메시지 P 출력
+        logoutBtn.addEventListener('click',()=>{
+            localStorage.setItem('isLogin','false')
+            resultStatus(); // 변경된 상태값에 따라 메시지 출력
+        })
+        // 공통 메시지 P 함수
+        function resultStatus(){
+            let statusMsg = '' // 메시지 초기값
+            // 상태 가져오기
+            let loginStatusValue = localStorage.getItem('isLogin')
+            console.log(loginStatusValue);
+            // 상태에 따라 조건문 분기 제작(로그인 / 로그아웃)
+            if(loginStatusValue == 'true'){
+                statusMsg = '로그인 되었습니다.'
+            }else{
+                statusMsg = '로그아웃 되었습니다.'
+            }
+            return resultP.textContent = statusMsg;
+        }
+    </script>
+</body>
+</html>

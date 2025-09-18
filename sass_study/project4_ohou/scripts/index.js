@@ -67,3 +67,150 @@ thumnailA[1].addEventListener('mouseover',()=>{
 localStorage.setItem('isLogin', 'ture');
 
 // 2. 😀저장하기 버튼 클릭 시 로그인 유무에 따라 다른결과 실행
+const bookMark = document.querySelector('.product_info .scrap')
+console.log(bookMark)
+let loginStatus = '';// 상태 가져오기 변수 생성
+
+bookMark.addEventListener('click',()=>{
+    // 위 변수 이용한 조건 분기
+    loginStatus = localStorage.getItem('isLogin')
+    if(loginStatus == 'ture'){
+        // 로그인 시 wish.html 이동
+        location.href='./wish.html'
+    }else{
+        // 로그아웃 시 login.html 이동
+        location.href='./login.html'
+    }
+})
+
+// 3. 리뷰 클릭 시 스크롤 이동
+const reviewBtn = document.querySelectorAll('.review_link')
+const productInfoWrap = document.querySelector('main > .product_info')
+const reviewWrap = document.querySelector('.review_wrap')
+const productInfoBtn = document.querySelector('.sticky_menu .product_link')
+console.log(reviewBtn, reviewWrap, productInfoWrap, productInfoBtn)
+
+reviewBtn[0].addEventListener('click',(e)=>{e.preventDefault(); contentsPstFunc(reviewWrap);})
+reviewBtn[1].addEventListener('click',(e)=>{e.preventDefault(); contentsPstFunc(reviewWrap);})
+productInfoBtn.addEventListener('click',(e)=>{e.preventDefault(); contentsPstFunc(productInfoWrap);})
+
+function contentsPstFunc(target){
+    return window.scrollTo(0, target.offsetTop);
+}
+/* productInfoBtn.addEventListener('click',(e)=>{
+    e.preventDefault() //a 새로고침 막기
+    // 스크롤 이동 window 함수 scrollTo(x, y)
+    console.log(productInfoWrap.offsetTop)//리뷰위치의 위쪽 좌표값 확인
+    window.scrollTo(0, productInfoWrap.offsetTop);
+}) */
+
+// 4. 가격 정보 (i) 클릭 시 정보 팝업 출력/숨기기
+const priceInfoIcon = document.querySelector('.price_info .info_icon')
+const priceInfo = document.querySelector('.price_info .info')
+console.log(priceInfo, priceInfoIcon)
+
+priceInfoIcon.addEventListener('mouseover',()=>{
+    priceInfoIcon.style.cursor = 'pointer'
+})
+
+// 가격 정보 (i) 클릭 시 정보 팝업 출력
+// 초기 : 숨김(false)
+// 클릭 : 보이기(true) -> false -> true -> false -> true...
+
+let infoBoolean = false; // 초기 : 숨김(false)
+
+priceInfoIcon.addEventListener('click',()=>{
+    //infoBoolean의 상태를 클릭할 때 마다 값(infoBoolean) 반전
+    infoBoolean = !infoBoolean//★★★★★
+    console.log(infoBoolean)
+    if(infoBoolean){//() 조건이 참일 때 자동실행
+        priceInfo.style.display = 'block';
+    }else{
+        priceInfo.style.display = 'none';
+    }
+    // priceInfo.style.display = 'block';
+})
+
+// 5. 주문 목록 초기 숨기기 .order_list
+// 6. 사이즈 select 초기 비활성화 (색상 선택 시 활성화) #size_select
+const orderList = document.querySelector('.order_list')
+const sizeSelect = document.querySelector('#size_select')
+const colorSelect = document.querySelector('#color_select')
+const orderListText = document.querySelectorAll('.info > span')
+const orderPrice = document.querySelector('.price > em')
+console.log(orderList, sizeSelect, colorSelect, orderListText, orderPrice)
+
+// 초기값
+orderList.style.display = 'none';
+sizeSelect.disabled = true
+
+// 6-2. (색상 선택 시 활성화)
+// 7. 색상->사이즈 모두 선택 시 (선택한 인덱스가 0이 아닌 것) - 콘솔 '선택완료'
+// 주문 목록 출력(선택한 값이 출력, 주문금액 변경)
+colorSelect.addEventListener('change',()=>{
+    console.log(colorSelect.selectedIndex)
+    console.log(colorSelect.options[0])
+    if(colorSelect.selectedIndex != 0){
+        sizeSelect.disabled = false //활성화
+        //사이즈 이벤트 작성위치
+        sizeSelect.addEventListener('change',()=>{
+            //사이즈 옵션 인덱스 0이 아닌 것 선택 시 콘솔 선택완료
+            if(sizeSelect.selectedIndex != 0){
+                console.log('선택완료')
+                orderList.style.display = 'block';
+                //선택한 옵션 안에 글자 가져오는 속성 text
+                console.log(orderList.children[0].children[0])
+                console.log(orderList.children[0].children[1])
+                //선택 옵션(color) 출력하기
+                let orderColor = colorSelect.options[colorSelect.selectedIndex].text;
+                let orderSize = sizeSelect.options[sizeSelect.selectedIndex].text;
+                // let orderColorReplace = orderColor.replace(찾는값, 변경값)
+                // 정규표현식 시작과 끝 표시 /검사내용/
+                // 괄호찾기 \찾는문자 \(.*\)
+                // 모든 내용 .* 
+                let orderColorReplace = orderColor.replace(/\(.*\)/,'')
+                let orderSizeReplace = orderSize.replace(/\(.*\)/,'')
+                orderList.children[0].children[0].textContent = orderColorReplace
+                orderList.children[0].children[1].textContent = orderSizeReplace
+                orderPrice.textContent = (productOptDB[0].price).toLocaleString('ko-kr')
+            }
+        })
+    }else{
+        sizeSelect.disabled = true //비활성화
+    }
+})
+/*     console.log(colorSelect.selectedIndex)
+    console.log(colorSelect.options[0])
+    // sizeSelect.disabled = false;
+    // 색상 select에서 첫번째 value=none에 해당하는 색상을 제외한 나머지 옵션이 선택되었을 때 사이즈 select 활성화하기
+    if(colorSelect.selectedIndex != 0){
+        sizeSelect.disabled = false //활성화
+    }else{ //사용자가 선택한 opt 0일때
+        sizeSelect.disabled = true //비활성화
+    } */
+
+// DB 불러오기 테스트
+// 1. JS에서 HTML 함수로 생성 createElement()
+const colorOpt1 = document.createElement('option')
+console.log(colorOpt1)
+const colorOpt2 = document.createElement('option')
+console.log(colorOpt1)
+// 2. 위에서 생성한 함수에 DB 데이터 대입 innerHTML, textContent
+colorOpt1.textContent = `${productOptDB[0].color[0]}(${(productOptDB[0].price).toLocaleString('ko-kr')}원)`//블랙(39900원)
+colorOpt2.textContent = `${productOptDB[0].color[1]}(${(productOptDB[0].price).toLocaleString('ko-kr')}원)`//라즈베리(39900원)
+// 3. 위에서 만든 HTML을 실제 HTML의 마지막 자식 위치로 삽입
+colorSelect.appendChild(colorOpt1)
+colorSelect.appendChild(colorOpt2)
+// * 생성한 태그가 li면 ul or ol의 마지막 자식 위치로 삽입
+// * 생성된 태그가 option면 select의 마지막 자식 위치로 삽입
+
+// 8. 주문목록 'x' 클릭 주문목록 삭제,주문금액 초기화
+const closeBtn = document.querySelector('.order_list .close')
+console.log(closeBtn)
+
+closeBtn.addEventListener('click',function(){
+    this.parentNode.style.display = 'none';
+    orderPrice.textContent = 0;
+    colorSelect.selectedIndex = colorSelect.options[0]
+    sizeSelect.selectedIndex = sizeSelect.options[0]
+})
