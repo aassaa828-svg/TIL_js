@@ -1,0 +1,35 @@
+/* color */
+$color-black:#000;
+$color-white:#fff;
+$color-blacy-2f:#2F2F2F;
+$color-gray:#E5E5E5;
+$color-gray-9:#999999;
+$color-gray-f6:#f6f6f6;
+$color-red:#FF4519;
+/* font-size */
+$font-size-xs:0.875rem; // 14px
+$font-size-s:1rem; // 16px
+$font-size-m:1.125rem; // 18px
+$font-size-l:1.5rem; // 24px
+$font-size-xl:1.875rem; //30px
+
+/* mixin */
+@mixin content-w {max-width:1400px; min-width:320px; margin:0 auto;}
+@mixin flex-row {
+    display:flex; flex-flow:row nowrap;
+    justify-content:flex-start; align-items:center;
+}
+@mixin flex-col {
+    display:flex; flex-flow:column nowrap;
+    justify-content:flex-start; align-items:center;
+}
+@mixin img100Percent {
+    width:100%; height:auto;
+}
+@mixin icon65 {width:65px; height:65px; display:inline-block;}
+@mixin icon20 {width:20px; height:20px; display:inline-block;}
+@mixin icon14 {width:14px; height:14px; display:inline-block;}
+@mixin thumnail {width:84px; height:84px;}
+@mixin thumnail_big {width:508px; height:678px;}
+@mixin banner {width:448px; height:96px;}
+@mixin pst-ab {position:absolute; left:0; top:0;}

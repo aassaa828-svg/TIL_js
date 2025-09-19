@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>thumnail_photo</title>
+    <style>
+        * {box-sizing:border-box; margin:0; padding:0;}
+        .box {
+            width:500px; height:500px; background:eee;
+            display:flex; flex-flow:row wrap; margin:50px auto 0;
+        }
+        .box .small {}
+        .box .small a {
+            display:block; width:50px; height:50px;
+            border:1px solid #000;
+        }
+        .box .small a:hover {border:2px solid #f00;}
+        .box .big_view {width:450px; overflow:hidden;}
+        .box .big_view .big {display:flex; width:calc(450px * 2);}
+        .box .big_view .big .photo {width:450px; height:450px;}
+        .box .big_view .big .photo.big1 {background:aqua;}
+        .box .big_view .big .photo.big2 {background:lime;}
+        .box .pagenation {display:flex; gap:10px; justify-content: center; width: 100%;}
+        .box .pagenation span {
+            width:10px; height:10px; border-radius: 50%;
+            background:#aaa;
+        }
+        .box .pagenation span.active {background:#f00;}
+    </style>
+</head>
+<body>
+    
+    <div class="box">
+        <div class="small">
+            <a href="#">s1</a>
+            <a href="#">s2</a>
+        </div>
+        <div class="big_view">
+            <div class="big">
+                <div class="photo big1">b1</div>
+                <div class="photo big2">b2</div>
+            </div>
+        </div>
+        <div class="pagenation">
+            <span class="active"></span>
+            <span></span>
+        </div>
+    </div>
+
+    <script>
+        const small = document.querySelectorAll('.small a')
+        const big = document.querySelector('.big')
+        const pagenation = document.querySelectorAll('.pagenation span')
+        console.log (small,big,pagenation)
+        //두번쨰 small 클릭 시 두번째 big 애니메이션 옆으로 나타내기
+        big.style.transition = 'transform 0.3s';
+
+        small[1].addEventListener('click',()=>{
+            big.style.transform = `translateX(-${big.children[0].offsetWidth*1}px)`
+            //요소에 클래스 적용/해제
+            //요소.classList.add(); 요소.classList.remove();
+            pagenation[0].classList.remove('active');
+            pagenation[1].classList.add('active');
+        })
+        small[0].addEventListener('click',()=>{
+            big.style.transform = `translateX(${big.children[0].offsetWidth*0}px)`
+            //요소에 클래스 적용/해제
+            //요소.classList.add(); 요소.classList.remove();
+            pagenation[1].classList.remove('active');
+            pagenation[0].classList.add('active');
+        })
+
+    </script>
+</body>
+</html>

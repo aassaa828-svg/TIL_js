@@ -1,0 +1,5 @@
+//main.scss
+@use './common.scss' as *;
+@use './index.scss';
+@use './responsive.scss';
+//sass --watch main.scss경로:main.css저장경로

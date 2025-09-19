@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sliding_card</title>
+    <style>
+        .all {
+            width:600px; overflow:hidden;
+            background:#eee; padding:10px;
+        }
+        .all .bnr {
+            display:flex; flex-flow:row nowrap; gap:10px;
+            width:calc(500px * 2);
+            transition: transform 0.3s ease-out;
+        }
+        .all .bnr .card {
+            width:500px; height:200px; border-radius:10px;
+        }
+        .all .bnr .card1 {background:aqua;}
+        .all .bnr .card2 {background:lime;}
+    </style>
+</head>
+<body>
+    <div class="all">
+        <div class="bnr">
+            <div class="card1 card">1</div>
+            <div class="card2 card">2</div>
+        </div>
+    </div>
+
+    <script>
+    const allContainer = document.querySelector('.all')
+    const bnrContainer = allContainer.querySelector('.bnr')
+    const card = bnrContainer.querySelectorAll('.card')
+    const cardW = card[0].offsetWidth;
+    let isDrag = false;
+    let startX = 0; //마우스 위치 계산 변수
+    let startScrollLeft = 0; //수평 스크롤 크기 계산 변수
+    console.log(allContainer, bnrContainer, card, cardW)
+
+    allContainer.addEventListener('mousedown',(e)=>{
+        isDrag = true;//드래그 시작(마우스 누를 때) 상태 변경
+        startX = e.pageX - allContainer.offsetLeft; //부모에서 마우스의 상대적인 좌표 저장
+        startScrollLeft = allContainer.scrollLeft;//수평 스크롤 위치 저장
+    })
+    allContainer.addEventListener('mouseup',()=>{
+        isDrag = false//드래그 종료 시(마우스 뗐을 때) 상태 변경
+    })
+    allContainer.addEventListener('mousemove',(e)=>{
+        if(!isDrag)return; //드래그 상태가 거짓이면 함수 종료
+        console.log('실행확인')
+        const x = e.pageX; //mousemove 이벤트 진행 시 마우스 좌표 변수
+        const walk = x - startX; //마우스 시작지점에서 드래그로 얼마나 이동했는지
+        allContainer.scrollLeft = startScrollLeft - walk;
+    })
+    </script>
+</body>
+</html>
