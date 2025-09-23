@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>to-do-list</title>
+    <style>
+        * {box-sizing: border-box; margin:0; padding:0; font-style:normal; font-weight:normal;}
+        #box {border:1px solid #ccc; padding:20px; width:500px; border-radius:10px; margin:20px auto 0;}
+        #box h1 {text-align:center; padding:0 0 20px; font-size:1.2rem;}
+        #box #list_wrap {margin-bottom:50px;}
+        #box #list_wrap li {letter-spacing:-0.02em; list-style:none; border-bottom:1px dashed #aaa; padding:10px 0;}
+        #box #list_wrap li em {font-weight:700;}
+        #box input#list {width:100%;background:#eee; padding:10px; border:0; margin:10px 0;}
+        #box #list_add {border-radius:5px; border:0; cursor:pointer; width:100%; padding:15px 0; background:#333; color:#fff;}
+        #box #list_add:hover {background:#555;}
+    </style>
+    <script src="./scripts/todo.js" defer></script>
+</head>
+<body>
+    <div id="box">
+        <h1>TO-DO-LIST</h1>
+        <ul id="list_wrap">
+            <li class="first"><em>오늘의 할일 목록</em></li>
+        </ul>
+        <input type="text" placeholder="오늘 할 일을 작성하고 추가하기를 클릭하세요" id="list">
+        <button type="button" id="list_add">추가하기</button>
+    </div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles/reset.css">
+    <script src="./scripts/for.js" defer></script>
+    <style>
+        .dan2 li.size {width:50px; height:20px;}
+        .dan2 li.color_odd {background:yellow; color:blue;}
+        .dan2 li.color_even {background:blue; color:yellow;}
+        .dan99 {
+            display:flex; flex-flow:column wrap; 
+            background:#f5f5f5;
+            height:calc((30px * 9) + 20px); padding:10px;
+        }
+        .dan99 li {line-height:30px;}
+    </style>
+</head>
+<body>
+    <div class="menu">
+        <a href="#">menu1</a>
+        <a href="#">menu2</a>
+        <a href="#">menu3</a>
+        <a href="#">menu4</a>
+    </div>
+    <ul class="dan99"></ul>
+    <ul class="dan2"><!-- <li></li> --></ul>
+</body>
+</html>
