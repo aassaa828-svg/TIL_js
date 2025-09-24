@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery</title>
+    <link rel="stylesheet" href="./styles/reset.css">
+    <!-- 제이쿼리 CDN 필수연결 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+    <header>
+        <nav id="gnb">
+            <a href="#">menu1</a>
+            <a href="#">menu2</a>
+            <a href="#" class="active">menu3</a>
+            <a href="#">menu4</a>
+        </nav>
+    </header>
+    <script>
+
+        // $제이쿼리
+        const $gnb = $('#gnb')
+        const $gnbA = $('#gnb > a')
+        const $aActive = $('#gnb > .active')
+        console.log($gnb, $gnbA, $aActive);
+
+        // $gnb.속성
+        // $gnb.속성.함수()
+        // $gnb.함수()
+        // $gnb.style.backgroundColor = 'yellow';
+        // 제이쿼리 함수나 속성이 따로 존재할때 자바스크립트 버전 속성, 함수를 작성하면 제이쿼리 변수로 인해 오류가 발생한다. 대표 : style
+
+        // 제이쿼리변수.css('속성','값').css('속성','값').css().css();
+        $gnb.css('background-color','yellow').css('width','max-content').css('text-align','center').css('margin','0 auto');
+
+        $gnbA.css({ //★
+            backgroundColor:'pink',
+            color:'red',
+            transform:'transrateX(20px)',
+        });
+
+    </script>
+</body>
+</html>
