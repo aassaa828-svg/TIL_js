@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>타이머 함수 | JS</title>
+    <link rel="stylesheet" href="./styles/reset.css">
+    <script src="./scripts/timer1.js" defer></script>
+    <style>
+        h1 {width:200px; margin:50px auto; text-align:center;}
+        h1 img {width:100%;}
+        .gentle_wrap {
+            margin: 0 auto; width:1200px; background:#f9f9f9;
+            display:flex; flex-flow: row nowrap; gap:20px;
+            height:600px;
+            position: relative;
+        }
+        .gentle_wrap .page_number {
+            position: absolute; left:30px; top:30px; z-index:100;
+        }
+        .gentle_wrap .page_number .current {}
+        .gentle_wrap .page_number em {padding:0 5px;}
+        .gentle_wrap .page_number .total {font-weight:700;}
+        .gentle_wrap .gentle_slide_container1 {
+            width:500px; position:relative;
+        }
+        .gentle_wrap .gentle_slide_container1 .slide {
+            position: absolute; left:0; top:0; width:100%; 
+            visibility:hidden; opacity:0;/* 모두 숨기기 */
+        }
+        .gentle_wrap .gentle_slide_container1 .slide1 {
+            visibility:visible; opacity:1;
+        }/* 첫번째만 보이기 */
+        /* @keyframe -> animation 임시클래스 -> js classList.add() */
+        /* opacity 0 -> 1 기본동작 준비 후 -> transition */
+        .gentle_wrap .gentle_slide_container1 .slide img {width:100%}
+        /* ------------슬라이드 2---------------------- */
+        .gentle_wrap .gentle_slide_container2 {
+            width:500px; position:relative;
+        }
+        .gentle_wrap .gentle_slide_container2 .slide {
+            position: absolute; left:0; top:0; width:100%; 
+            display:none;/* 모두 숨기기 */
+        }
+        .gentle_wrap .gentle_slide_container2 .slide6 {display:block;}/* 첫번째만 보이기 */
+        .gentle_wrap .gentle_slide_container2 .slide img {width:100%}
+        /* 애니메이션 테스트 */
+        @keyframes opacity_ani {
+            0% {opacity:0; visibility:hidden;}
+            100% {opacity:1; visibility:visible;}
+        }
+        .ani_test {
+            opacity:0; visibility:hidden;
+            animation:opacity_ani 1s both 3s;
+            /* animation:키프레임애니메이션명 지속시간 종료방법 지연시간 */
+        }
+        .ani_test .box {
+            width:100px ; height:100px; background:coral;
+        }
+        /* 3초 후에 opacity:1; 속성으로 ani_test 보이기 @keyframes*/
+        /* @keyframes 애니메이션이름 { 0%{} 100%{} } */
+        /* 선택자 {animation:키프레임애니메이션이름 지속시간} */
+    </style>
+</head>
+<body>
+    <h1>이미지 슬라이드</h1>
+    <h1><a href="#"><img src="./images/logo.png" alt="젠틀몬스터"></a></h1>
+    <!-- 전체틀 > (개별슬라이드묶음 + 버튼or슬라이드 등) > 개별슬라이드*4 -->
+    <div class="gentle_wrap">
+        <div class="page_number">
+            <span class="current"></span>
+            <em>/</em>
+            <span class="total"></span>
+        </div>
+        <div class="gentle_slide_container1">
+            <div class="slide slide1"><img src="./images/gentile_01.jpg" alt=""></div>
+            <div class="slide slide2"><img src="./images/gentile_02.jpg" alt=""></div>
+            <div class="slide slide3"><img src="./images/gentile_03.jpg" alt=""></div>
+            <div class="slide slide4"><img src="./images/gentile_04.jpg" alt=""></div>
+            <div class="slide slide5"><img src="./images/gentile_05.jpg" alt=""></div>
+            <div class="slide slide6"><img src="./images/gentile_06.jpg" alt=""></div>
+        </div>
+        <div class="gentle_slide_container2">
+            <div class="slide slide1"><img src="./images/gentile_01.jpg" alt=""></div>
+            <div class="slide slide2"><img src="./images/gentile_02.jpg" alt=""></div>
+            <div class="slide slide3"><img src="./images/gentile_03.jpg" alt=""></div>
+            <div class="slide slide4"><img src="./images/gentile_04.jpg" alt=""></div>
+            <div class="slide slide5"><img src="./images/gentile_05.jpg" alt=""></div>
+            <div class="slide slide6"><img src="./images/gentile_06.jpg" alt=""></div>
+        </div>
+    </div>
+    <div class="ani_test">
+        <div class="box"></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>swiper2 | js plugin</title>
+    <link rel="stylesheet" href="./styles/reset.css">
+    <!--플러그인 필수 css cdn 연결-->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <!--플러그인 필수 JS cdn 연결-->
+    <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <!-- 개별 css, script 파일 작성 위치 -->
+    <style>
+        /* -----------------------------헤더--------------------- */
+        header {
+            position:fixed; left:0; top:0;
+            text-align:center;
+            width:100%; height:50px;
+            z-index:999;
+            background:#fff;
+            font-size:3rem;
+        }
+        /* -----------------------------전체슬라이드--------------------- */
+        #wrap {
+            width:100%; height:100vh;
+        }
+        #wrap .swiper-wrapper {}
+        #wrap .swiper-wrapper .swiper-slide {
+            padding-top:70px;
+        }
+        #wrap .swiper-wrapper .ad {background:aqua;}
+        #wrap .swiper-wrapper .best {background:lime;}
+        #wrap .swiper-wrapper .new {background:yellow;}
+        #wrap .swiper-wrapper .md {background:pink;}
+        /* -----------------------------광고슬라이드--------------------- */
+        #wrap .swiper-wrapper .ad .ad_contents {width:1000px; height:400px;}
+        #wrap .swiper-wrapper .ad .ad_contents .swiper-wrapper .swiper-slide {}
+        #wrap .swiper-wrapper .ad .ad_contents .swiper-wrapper .ad1 {background:darkgoldenrod;}
+        #wrap .swiper-wrapper .ad .ad_contents .swiper-wrapper .ad2 {background:darkkhaki;}
+        #wrap .swiper-wrapper .ad .ad_contents .swiper-wrapper .ad3 {background:darkcyan;}
+        /* ---------------------------베스트상품(젠틀몬스터 공통)-------------------------------- */
+        #wrap .swiper-wrapper .best {}
+        #wrap .swiper-wrapper .best h1 {}
+        #wrap .swiper-wrapper .best ul {
+            width:919px; height:841px;
+            display:flex; gap:20px;}
+        #wrap .swiper-wrapper .best ul li {
+            width:400px; padding:0 30px; height:510px;
+            position: relative;
+        }
+        #wrap .swiper-wrapper .best ul li .swiper-button-next {
+            color:hotpink; transform:scale(0.5) rotate(-90deg);
+            top:45%; bottom:auto; left:auto; right:40px;
+        }
+        #wrap .swiper-wrapper .best ul li .swiper-button-prev {
+            color:red; transform:scale(0.5) rotate(-90deg);
+            top:45%; bottom:auto; left:60px; right:auto;
+        }
+        #wrap .swiper-wrapper .best ul li .price {font-family: '맑은 고딕';}
+        /* ---------------------------베스트상품(젠틀몬스터1)----------------------------------- */
+        #wrap .swiper-wrapper .best .gentle_content1 {margin-bottom:5px;}
+        #wrap .swiper-wrapper .best .gentle_content1 .swiper-wrapper .swiper-slide {}
+        #wrap .swiper-wrapper .best .gentle_content1 .swiper-wrapper .slide1 {}
+        #wrap .swiper-wrapper .best .gentle_content1 .swiper-wrapper .slide1 img {
+            width:100%;
+        }
+        #wrap .swiper-wrapper .best .gentle_content1 .swiper-wrapper .slide2 {}
+        #wrap .swiper-wrapper .best .gentle_content1 .swiper-wrapper .slide2 img {
+            width:100%;
+        }
+        #wrap .swiper-wrapper .best .gentle_content1 .swiper-wrapper .slide3 {}
+        #wrap .swiper-wrapper .best .gentle_content1 .swiper-wrapper .slide3 img {
+            width:100%;
+        }
+        /* ---------------------------베스트상품(젠틀몬스터2)----------------------------------- */
+        #wrap .swiper-wrapper .best .gentle_content2 {margin-bottom:5px;}
+        #wrap .swiper-wrapper .best .gentle_content2 .swiper-wrapper .swiper-slide {}
+        #wrap .swiper-wrapper .best .gentle_content2 .swiper-wrapper .slide1 {}
+        #wrap .swiper-wrapper .best .gentle_content2 .swiper-wrapper .slide1 img {
+            width:100%;
+        }
+        #wrap .swiper-wrapper .best .gentle_content2 .swiper-wrapper .slide2 {}
+        #wrap .swiper-wrapper .best .gentle_content2 .swiper-wrapper .slide2 img {
+            width:100%;
+        }
+        #wrap .swiper-wrapper .best .gentle_content2 .swiper-wrapper .slide3 {}
+        #wrap .swiper-wrapper .best .gentle_content2 .swiper-wrapper .slide3 img {
+            width:100%;
+        }
+        </style>
+</head>
+<body>
+    <header>header</header>
+    <div class="swiper" id="wrap">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide ad">
+                <h1>광고</h1>
+                <div class="swiper ad_contents"><!-- 1000x400 -->
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide ad1"><img src="#" alt=""></div>
+                        <div class="swiper-slide ad2"><img src="#" alt=""></div>
+                        <div class="swiper-slide ad3"><img src="#" alt=""></div>
+                    </div>
+                    <div class="swiper-scrollbar"></div>
+                </div>
+            </div>
+            <div class="swiper-slide best">
+                <h1>베스트상품</h1>
+                <ul>
+                    <li>
+                        <div class="swiper-button-prev"></div><!-- 자식 자손 금지 -->
+                        <div class="swiper-button-next"></div>
+                        <a href="#">
+                            <div class="swiper gentle_content1"><!-- 젠몬1 슬라이드 -->
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide slide1"><img src="./images/gentile_01.jpg" alt=""></div>
+                                    <div class="swiper-slide slide2"><img src="./images/gentile_02.jpg" alt=""></div>
+                                    <div class="swiper-slide slide3"><img src="./images/gentile_03.jpg" alt=""></div>
+                                </div>
+                            </div>
+                            <p>에덴 02(BR)</p>
+                            <p class="price">\330,000</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div class="swiper gentle_content2"><!-- 젠몬2 슬라이드 -->
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide slide1"><img src="./images/gentile_04.jpg" alt=""></div>
+                                    <div class="swiper-slide slide2"><img src="./images/gentile_05.jpg" alt=""></div>
+                                    <div class="swiper-slide slide3"><img src="./images/gentile_06.jpg" alt=""></div>
+                                </div>
+                                <p>에덴 02(BR)</p>
+                                <p class="price">\330,000</p>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="swiper-slide new">
+                <h1>신상품</h1>
+            </div>
+            <div class="swiper-slide md">
+                <h1>MD추천상품</h1>
+            </div>
+        </div>
+        <!-- swiper-slide 외에 다른 선택 옵션들은 자식,자손 작성금지 -->
+        <div class="swiper-scrollbar"></div>
+    </div>
+    <script>
+        /* 전체 슬라이드 * 4 */
+        const wrapSlide = new Swiper('#wrap',{
+            direction:'vertical',
+            mousewheel:true,
+            scrollbar:{
+                el:'#wrap > .swiper-scrollbar'/* 부모 포함 작성 */
+            },
+        })
+        /* 광고 슬라이드 * 3 */
+        const adSlide = new Swiper('.ad_contents',{
+            scrollbar:{
+                el:'.ad_contents > .swiper-scrollbar'
+            },
+        })
+
+        /* 젠몬 슬라이드 * 2 > 3 */
+        const gentleSlide1 = new Swiper('.best .gentle_content1',{
+            autoplay:{delay:2000},
+            loop:true, //끝에서 처음으로 자연스럽게 전환
+            navigation:{
+                nextEl:'.best ul li:nth-child(1) .swiper-button-next',
+                prevEl:'.best ul li:nth-child(1) .swiper-button-prev',
+            }
+        })
+        const gentleSlide2 = new Swiper('.best .gentle_content2',{
+            autoplay:{delay:1000},
+            loop:true, //끝에서 처음으로 자연스럽게 전환
+        })
+    </script>
+</body>
+</html>
