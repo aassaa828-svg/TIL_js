@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>swiper3</title>
+    <link rel="stylesheet" href="./styles/reset.css">
+    <!--플러그인 필수 css cdn 연결-->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <!--플러그인 필수 JS cdn 연결-->
+    <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <!-- 개별 css, script 파일 작성 위치 -->
+    <style>
+        /* swiper-wrapper, swiper-slide (relative, w100%, h100%) */
+        /* swiper (overflow:hidden) */
+        #gallery_wrap {
+            background: #f5f5f5; padding:50px;
+            position: relative; width:1250px;
+            margin:0 auto;
+        }
+        #gallery_wrap #gallery {
+            width:1000px; height:300px;
+            border:2px solid red;
+        }
+        #gallery_wrap #gallery .swiper-wrapper {}
+        #gallery_wrap #gallery .swiper-wrapper .swiper-slide {}
+        #gallery_wrap #gallery .swiper-wrapper .gall1 {background: aqua;}
+        #gallery_wrap #gallery .swiper-wrapper .gall2 {background: pink;}
+        #gallery_wrap #gallery .swiper-wrapper .gall3 {background: beige;}
+        #gallery_wrap #gallery .swiper-wrapper .gall4 {background: burlywood;}
+        #gallery_wrap .swiper-pagination {
+        } /* absolutue */
+        #gallery_wrap .swiper-pagination .swiper-pagination-bullet {
+            background: none;
+            /* height:100% */
+            font-size:0.875rem;
+            color:blue;
+            opacity:0.5;
+            line-height:2;
+        }
+        #gallery_wrap .swiper-pagination .swiper-pagination-bullet-active {
+            background:red; transform:scale(1.4);
+        }
+        #gallery_wrap .swiper-button-prev {}
+        #gallery_wrap .swiper-button-prev::after {
+            content:'';
+            width:50px; height:50px;
+            background:url(https://cdn-icons-png.flaticon.com/512/6402/6402883.png)
+            no-repeat left center / 40px auto;
+            display:block;
+            rotate:180deg;
+        }
+        #gallery_wrap .swiper-button-prev svg {display:none;}
+        #gallery_wrap .swiper-button-next {}
+        #gallery_wrap .swiper-button-next svg {display:none;}
+        #gallery_wrap .swiper-button-next::after {
+            content:'';
+            width:50px; height:50px;
+            background:url(https://cdn-icons-png.flaticon.com/512/6402/6402883.png)
+            no-repeat right center / 40px auto;
+            display:block;
+        }
+        #gallery_wrap .swiper-scrollbar {
+            top:40px; bottom:auto; width:1000px; left:50%;
+            transform:translateX(-50%);
+            height:1px; background: red;
+        }
+        #gallery_wrap .swiper-scrollbar .swiper-scrollbar-drag {
+            background : yellow;
+        }
+    </style>
+</head>
+<body>
+    <main id="gallery_wrap">
+        <div class="swiper" id="gallery">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide gall1"><img src="#" alt=""></div>
+                <div class="swiper-slide gall2"><img src="#" alt=""></div>
+                <div class="swiper-slide gall3"><img src="#" alt=""></div>
+                <div class="swiper-slide gall4"><img src="#" alt=""></div>
+            </div>
+            <!-- 옵션 추가 가능 위치(1) -->
+        </div>
+        <!-- 옵션 추가 가능 위치(2) swiper 바깥 -->
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-scrollbar"></div>
+    </main>
+    <script>
+        //const 변수명 = new Swiper('별도명')
+        //const 변수명 = new Swiper('별도명',{옵션:값,옵션:값,  })
+        //const 변수명 = new Swiper('별도명',{옵션:{옵션:값},})
+        const gallerySwiper = new Swiper('#gallery_wrap #gallery',{
+            autoplay:{delay:1000,},
+            loop:true,
+            pagination:{
+                el:'#gallery_wrap .swiper-pagination',
+                renderBullet:function(i, cls){
+                    console.log(i, cls)
+                    return `<span class=${cls}>${i+1}</span>`
+                },
+            },
+            navigation:{
+                prevEl:'#gallery_wrap .swiper-button-prev',
+                nextEl:'#gallery_wrap .swiper-button-next',
+            },
+            scrollbar: {
+        el: "#gallery_wrap .swiper-scrollbar",
+        hide: false,
+            },
+        });
+    </script>
+</body>
+</html>
