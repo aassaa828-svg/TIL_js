@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02-trigger</title>
+    <!-- scrollTrigger CDN(필수) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/ScrollTrigger.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&display=swap');
+        * {margin:0; padding:0; font-family: 'Noto Serif KR', serif;}
+        .wrap {
+            width:100%; height:100vh;
+            overflow:hidden;
+        }
+        .wrap .bg {
+            height:100%;
+            background-size:cover; background-position:center;
+        }
+        .wrap .bg1 {background-image:url(images/bg1.jpg); background-attachment:fixed;}
+        .wrap .bg2 {background-image:url(images/bg2.jpg);}
+        .wrap .bg3 {background-image:url(images/bg3.jpg);}
+        .wrap .bg4 {background-image:url(images/bg4.jpg);}
+        .wrap .bg h1 {font-size:3rem; font-weight:600; color:#fff;}
+        .wrap .bg1 h1 {text-align:center; line-height:100vh;}
+    </style>
+</head>
+<body>
+    <div class="wrap wrap1">
+        <div class="bg bg1"><h1>그랜드 조선 부산 호텔</h1></div>
+    </div>
+    <div class="wrap wrap2">
+        <div class="bg bg2"><h1>Grand Josun Busan Hotel</h1></div>
+    </div>
+    <div class="wrap wrap3">
+        <div class="bg bg3"><h1>편안한 객실 최상의 서비스</h1></div>
+    </div>
+    <div class="wrap wrap4">
+        <div class="bg bg4"><h1>최고의 휴가를 그랜드 조선 부산호텔과 함께 하세요</h1></div>
+    </div>
+    <!-- cdn연결 -->
+    <script>
+        gsap.registerPlugin(ScrollTrigger)
+
+        //gsap.fromTo('적용대상',{from},{to})
+        //gsap.fromTo('적용대상',{옵션:값, 옵션:값,},{scrollTrigger:값, 옵션:값})
+        //scrollTrigger옵션은 {to} 쪽에 입력하기
+
+        gsap.fromTo('.bg2 h1',{//from
+            opacity:0,
+            scale:0.8,
+        },{//to
+            scrollTrigger:{trigger:'.bg2'},
+            opacity:1,
+            scale:1,
+            duration:3, delay:0.5,
+        })
+        gsap.fromTo('.bg3 h1',{
+            opacity:0,
+            scale:1.4,
+            y:50
+        },{
+            scrollTrigger:{trigger:'.bg3'},
+            opacity:1,
+            scale:1,
+            y:0,
+            duration:1
+        })
+        gsap.fromTo('.bg4 h1',{
+            opacity:0,
+            x:200,
+        },{
+            scrollTrigger:{
+                trigger:'.bg4',
+                toggleActions:'play pause resume reset',
+            },
+            opacity:1,
+            x:0,
+            duration:1,
+            delay:0.5,
+        })
+        setTimeout(function(){window.scrollTo(0,0)},200)
+    </script>
+</body>
+</html>

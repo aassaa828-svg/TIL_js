@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스크롤 | JS</title>
+    <link rel="stylesheet" href="./styles/reset.css">
+    <style>
+        body, html {
+            height:300vh;
+            background: linear-gradient(beige,coral,pink,orange);
+        }
+        #top {position: fixed; right:20px; bottom:20px; display:none;}
+        header {
+            background:#fff; height:100px; 
+            position: relative; z-index:999;
+        }
+        .header_fixed {position:fixed; top:0; width:100%;}
+        main .title {
+            background:skyblue; height:50px;
+            position:sticky; top:0;
+        }
+        /* sticky 실행조건 : sticky적용 대상의 부모가 뷰포트보다 커야함 */
+        .bnr {background:hotpink; height:50px;}
+    </style>
+</head>
+<body>
+    <button type="button" id="top">위로</button>
+    <div class="bnr">광고</div>
+    <header>header</header>
+    <main>
+        <div class="title">
+            <a href="#">책 소개</a>
+            <a href="#">리뷰</a>
+            <a href="#">배송정보</a>
+        </div>
+        <div class="contents" style="height:80vh">책 소개 내용</div>
+        <div class="contents" style="height:80vh">리뷰 내용</div>
+        <div class="contents" style="height:80vh">배송정보 내용</div>
+    </main>
+    <script>
+
+        const topBtn = document.querySelector('#top')
+        const titleA = document.querySelectorAll('.title a')
+        const contents = document.querySelectorAll('.contents')
+        const header = document.querySelector('header')
+
+        // 스크롤 이벤트
+        // window.addEventListener('scroll',()=>{console.log('.')})
+/*         window.addEventListener('scroll',()=>{
+            console.log(window.pageYOffset)
+            if(window.pageYOffset > 300) console.log('현재 위치는 300보다 크다')
+        }) */
+
+        window.addEventListener('scroll',()=>{
+            // window.pageYOffset > 50 ? header.classList.add('header_fixed') : header.classList.remove('header_fixed')
+            if(this.pageYOffset > 50){
+                header.classList.add('header_fixed') //css에서 class 생성 후
+                topBtn.style.display = 'block'
+/*                 header.style.position = 'fixed'
+                header.style.top = '0'
+                header.style.width = '100%' */
+            }else {
+                header.classList.remove('header_fixed')
+                topBtn.style.display = 'none'
+                // header.style.position = 'relative'
+            }
+        })
+
+
+        // 객체.forEach(function(obj, idx, arr){반복실행})
+        titleA.forEach(function(o, i, a){
+            o.addEventListener('click',(e)=>{
+                e.preventDefault()
+                window.scrollTo({left:0, top:contents[i].offsetTop-50, behavior:'smooth'})
+            })
+        })
+
+        // 객체[index] //개별방법
+/*         titleA[1].addEventListener('click',(e)=>{
+            e.preventDefault(); //href 막기
+            console.log(contents[1].offsetTop)
+            window.scrollTo(0, contents[1].offsetTop+70)
+        }) */
+
+        topBtn.addEventListener('click',()=>{
+            // window.scrollTo(x, y, option)
+            // window.scrollTo(100, 200)
+            // window.scrollTo({left:0, top:100})
+            window.scrollTo({left:0, top:0, behavior:'smooth'})
+        })
+        
+    </script>
+</body>
+</html>
