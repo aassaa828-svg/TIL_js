@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가로스크롤트리거활용</title>
+    <link rel="stylesheet" href="./styles/reset.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/ScrollTrigger.min.js"></script>
+    <style>
+        header {text-align:center; width:100%; position: fixed; background:#fff;}
+        header h1 {}
+        header img {}
+        main {}
+        main .title {
+            display:flex; flex-flow:column nowrap; align-items:center; justify-content: center; width:100%; height:100vh;
+            background-image:url(https://images.unsplash.com/photo-1608541737042-87a12275d313?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bmlrZXxlbnwwfHwwfHx8MA%3D%3D);
+            background-size:cover; background-position: center; gap:5px;
+        }
+        main .title h2, main .title p {animation: opacityani 2s;}
+        main .title p {font-weight:500;}
+        main .title h2 {font-weight: 700; font-size: 3rem;}
+        body {overflow-x:hidden;}
+        .wrap {}
+        .wrap .container {display:flex; width:max-content; position: relative;}
+        .wrap .container img {width:100vw;}
+        .wrap .container h2,
+        .wrap .container p {position: absolute; left:50px; top:50%; color:#fff;}
+        .wrap .container h2 {font-weight: 700; font-size: 3rem;}
+        .wrap .container p {top:60%; font-weight:500;}
+        
+        @keyframes opacityani {
+            0% {opacity:0;}
+            100% {opacity:1;}
+        }
+    </style>
+</head>
+<body>
+    <!-- 음식, 자연, 동물, 패션 등 -->
+    <header>
+        <h1><img src="https://img.icons8.com/?size=50&id=16647&format=png" alt=""></h1>
+    </header>
+    <main>
+        </div>
+        <div class="title">
+            <p>알 수 있는 방법은 단 하나.</p>
+            <h2>JUST DO IT</h2>
+        </div> 
+        <div class="wrap">
+            <div class="container">
+                <h2>스트럭처 26</h2>
+                <p>지지력 있는 쿠셔닝이 러닝을 멈추지 않도록 도와줍니다.<br>
+                지금 새로운 컬러웨이로 만나 보세요.</p>
+                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bmlrZXxlbnwwfHwwfHx8MA%3D%3D" alt="">
+                <img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fG5pa2V8ZW58MHx8MHx8fDA%3D" alt="">
+                <img src="https://images.unsplash.com/photo-1515955656352-a1fa3ffcd111?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fG5pa2V8ZW58MHx8MHx8fDA%3D" alt="">
+                <img src="https://images.unsplash.com/photo-1579298245158-33e8f568f7d3?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjR8fG5pa2V8ZW58MHx8MHx8fDA%3D" alt="">
+            </div>
+        </div>
+    </main>
+    <script>
+        gsap.registerPlugin(ScrollTrigger)
+
+        const container = document.querySelector('.container')
+        const scrollW = container.offsetWidth - window.innerWidth;
+
+        gsap.utils.toArray('.wrap').forEach((obj)=>{
+            console.log(obj)
+            //timeline 애니메이션 관리 + fromTo 연결동작
+            const nike = gsap.timeline({
+                scrollTrigger:{
+                    trigger:obj,
+                    start:'center center',
+                    end:()=>'+=' + scrollW,//가로스크롤 종료 지점
+                    scrub:true,//마우스휠 동작에 맞추기
+                    pin:true,//고정
+                    anticipatePin:1,//gsap권장옵션(화면튀는현상막기)
+                },defaults:{ease:'none'},//속도 균일
+            })
+            nike.fromTo(obj.querySelector('.container'),{
+                x:0,
+            },{
+                x:-scrollW
+            })
+        })
+
+        gsap.fromTo('.container h2,.container p',{//from
+            opacity:0,
+            x:200
+        },{//to
+            scrollTrigger:{trigger:'.container'},
+            opacity:1,
+            x:0,
+            duration:1,}
+        )
+    </script>
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>반얀트리 해운대 부산</title>
+        <link rel="stylesheet" href="./styles/reset.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&family=Noto+Serif+KR:wght@200..900&display=swap" rel="stylesheet">
+    <!-- scrollTrigger CDN(필수) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/ScrollTrigger.min.js"></script>
+    <style>
+        * {font-family: "Noto Serif KR", serif !important;}
+        header {
+            display:flex; flex-flow: row nowrap; 
+            align-items: center; justify-content: space-between;
+            padding:50px;
+            position:fixed; height:50px; width:100%;
+        }
+        header a {color:#fff; font-weight:500;}
+        section {
+            width:100%; height:100vh;
+            overflow:hidden;
+        }
+        section .bg {
+            height:100%; background-size:200% auto; 
+            background-position: center; background-attachment: fixed;
+            animation:bg 1.5s both;
+        }
+        .bg h2 {color:#fff; font-size:3rem; font-weight:600;}
+        .bg p {color:#eee; font-size:1rem; line-height:1.5rem;}
+        .bg1 {
+            background-image:url(./banyanTree_images/main_bg_new2.jpg);
+            display:flex; justify-content: center; align-items: center;
+        }
+        .bg1 h2 {animation: title 2s;}
+        .bg02 {background-image:url(./banyanTree_images/main_con2_bg.jpg);}
+        .bg03 {background-image:url(./banyanTree_images/main_con3_bg.jpg);}
+        .bg04 {background-image:url(./banyanTree_images/main_con5_bg-.jpg);}
+        .bg02,.bg03,.bg04 {
+            display:flex; flex-flow: column; gap:10px;
+            padding:100px;
+        }
+        footer {
+            width:100%; height:150px;
+            background:#000; display:flex; flex-flow: row nowrap;
+            justify-content:space-between; align-items: center;
+            padding:50px 250px;
+        }
+        footer p {color:#aaa; font-size: 1.25rem;}
+        main .reserve {
+            position: fixed;
+            right:20px;
+            bottom:20px;
+            padding:10px 20px; 
+            border-radius:10px; border:2px solid #fff;
+        }
+        main .reserve a {color:#fff;}
+
+        /* create 불러오기용 class */
+        .bg02 h2, .bg03 h2, .bg04 h2 {opacity:0; transform: translateY(50px); transition:all 2s;}
+        .bg h2.active {opacity:1; transform: translateY(0);}
+        .bg p {transform: translateY(50px); opacity:0; transition:all 2s;}
+        .bg p.active {opacity:1; transform:translateY(0)}
+        .title {width:max-content; height:max-content; overflow:hidden;}
+        /* animation */
+        @keyframes title {
+            0% {transform:scale(1.4); opacity: 0;}
+            100% {transform:scale(1); opacity: 1;}
+        }
+        @keyframes bg {
+            0% {background-size:200% auto;}
+            100% {background-size:180% auto;}
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1><a href="./banyan.html"><img src="./banyanTree_images/logo_w.png" alt="반얀트리 해운대"></a></h1>
+        <nav><a href="#">MENU</a></nav>
+    </header>
+    <main>
+        <section class="s1">
+            <div class="bg bg1">
+                <h2>BANYAN TREE HAEUNDAE BUSAN</h2>
+            </div>
+        </section>
+        <section class="s2">
+            <div class="bg bg02">
+                <div class="title"><h2>THE BEST SANCTUARY FOR THE SENSES</h2></div>
+                <p>
+                    최상의 모든 조건, 반얀트리를 빛내는 브랜드 컬렉션, 그 중에서도 반약트리(Banyan Tree)는<br>
+                    명실상부한 럭셔리 호스피탈리티의 최상급 브랜드입니다.<br>
+                    전세계의 가장 아름답고 장엄한 자연 속에서 누리는 지역 고유의 경험.<br>
+                    최고의 휴양을 선사하는 반얀트리를 만나보십시오.
+                </p>
+        </section>
+        </div>
+        <section class="s3">
+            <div class="bg bg03">
+                <div class="title"><h2>BANYAN TREE HAEUNDAE</h2></div>
+                <p>
+                    부산의 아름다운 오시리아, 그 곳 해변과 한 걸음<br>
+                    귀하께 2025년 반얀트리 해운대 부산의 탄생 소식을 전합니다.<br>
+                    세계 곳곳에서 경험하던 반약트리의 휴식, 그 이상을 이제, 부산에서도 만나실 수 있습니다.
+                </p>
+            </div>
+        </section>
+        <section class="s4">
+            <div class="bg bg04">
+                <div class="title"><h2>A HOME IN THE PERFECT WORLD</h2></div>
+                <p>
+                    반얀트리는 22개 국가에 48개의 호텔과 리조트, 64개의 스파, 골프 코스 및 레지던스를 운영하는 글로벌 기업입니다.<br>
+                    완벽한 안식처를 향한 멈추지 않는 반얀트리의 노력그것은 이미, 국제적 권위를 가진 2700여 개 이상의<br> 
+                    수상 경력이 증명하고 있습니다. 반얀트리 해운대 부산과 함께 세계 곳곳 이름 난 비경 속의 반얀트리를 만나십시오.<br>
+                    지상 최고의 휴식을 선사하겠습니다.
+                </p>
+            </div>
+        </section>
+        <div class="reserve">
+            <a href="#">이너스 멤버 상담 예약</a>
+        </div>
+        
+    </main>
+    <footer>
+        <img src="./banyanTree_images/footer_logo.jpg" alt="반얀트리 해운대">
+        <p>COPYRIGHT &copy; 2022 banyan tree haendaevusan. all rights reserved.</p>
+    </footer>
+    <script>
+            gsap.registerPlugin(ScrollTrigger)
+
+            const bg = document.querySelectorAll('div[class*=bg0]')
+            const h2 = document.querySelectorAll('div[class*=bg0] h2')
+            const p = document.querySelectorAll('.bg p') 
+            bg.forEach((obj,ind,arr)=>{
+                //fromTo-bg
+                gsap.fromTo(obj,{
+                    opacity:0,
+                },{
+                    scrollTrigger:{trigger:obj, start:'top center', /* markers:true */},
+                    opacity:1, duration:2,
+                })
+                ScrollTrigger.create({
+                    trigger:obj,
+                    start:'top center',
+                    //markers:true,
+                    onEnter:()=>{h2[ind].classList.add('active')},
+                    onLeave:()=>{h2[ind].classList.remove('active')},
+                })
+                ScrollTrigger.create({
+                    trigger:obj,
+                    start:'top center',
+                    //markers:true,
+                    delay:2,
+                    onEnter:()=>{p[ind].classList.add('active')},
+                    onLeave:()=>{p[ind].classList.remove('active')},
+            })
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gsap</title>
+    <link rel="stylesheet" href="../styles/reset.css">
+    <!-- scrollTrigger CDN 필수 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/ScrollTrigger.min.js"></script>
+    <style>
+        body {background:linear-gradient(beige,gray,beige)}
+        div.box {height:100vh; font-size:5rem;}
+        /* .box2 h1 {opacity:0; transform:translateX(300px);} */
+    </style>
+</head>
+<body>
+    <div class="box">1</div>
+    <div class="box box2 boxani">
+        <h1 class="title">2</h1>
+        <p class="contents">2-2</p>
+    </div>
+    <div class="box box3 boxani">
+        <h1 class="title">3</h1>
+        <ul class="contents">
+            <li>3-2</li>
+        </ul>
+    </div>
+    <div class="box">4</div>
+    <script>
+        gsap.registerPlugin(ScrollTrigger) //★scrollTrigger 필수
+        
+        const box = document.querySelectorAll('.boxani')
+        const title = document.querySelectorAll('.title')
+        const contents = document.querySelectorAll('.contents')
+        console.log(box, title, contents)
+
+        //for~in or for~of or forEach
+        box.forEach((obj,ind,arr)=>{
+            console.log(obj,ind,arr)
+            // title
+            gsap.fromTo(title[ind],{
+                opacity:0, y:50,
+            },{
+                scrollTrigger:{
+                    trigger:obj,
+                    start:'top center',
+                    markers:true,
+                },
+                opacity:1, y:0, duration:1,
+            })
+            // contents
+            gsap.fromTo(contents[ind],{
+                opacity:0, x:200, scale:1.3
+            },{
+                scrollTrigger:{
+                    trigger:obj,
+                    start:'top center',
+                    markers:true,
+                },
+                opacity:1, x:0, scale:1, duration:1, delay:1,
+            })
+        })
+        //gsap.fromTo
+        /* gsap.fromTo('.box3 h1',{ //from
+            opacity:0,
+            x:200, y:-50,
+        },{ //to
+            scrollTrigger:{
+                trigger:'.box3',
+                markers:true,
+                start:'top center',
+            },
+            opacity:1,
+            x:0, y:50, delay:1, duration:2,
+        }) */
+
+        //gsap.to
+        //시작 (css) 종료(gsap.to)
+        /* gsap.to('.box2 h1',{
+            scrollTrigger:{//설정 시작
+                trigger:'.box2',//뷰포트에서 box2가 보일 때
+                markers:true,
+                start:'top 80%',
+            },//설정 종료(이후 애니메이션 옵션:값)
+            opacity:1,
+            x:0, delay:2,
+        }) */
+    
+    </script>
+</body>
+</html>

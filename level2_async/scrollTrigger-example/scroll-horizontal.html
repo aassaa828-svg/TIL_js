@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스크롤트리거 가로스크롤</title>
+    <link rel="stylesheet" href="../styles/reset.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/ScrollTrigger.min.js"></script>
+    <style>
+        body {overflow-x:hidden;}
+        .box {height:100vh; background:#eee; font-size:5rem;}
+        .wrap .container {display:flex; width:max-content;}
+        .wrap .container img {width:100vw;}
+    </style>
+</head>
+<body>
+    <main>
+        <section class="box">1</section>
+        <section class="wrap">
+            <div class="container">
+                <img src="../banyanTree_images/main_bg_new2.jpg" alt="">
+                <img src="../banyanTree_images/main_con2_bg.jpg" alt="">
+                <img src="../banyanTree_images/main_con3_bg.jpg" alt="">
+                <img src="../banyanTree_images/main_con5_bg-.jpg" alt="">
+            </div>
+        </section>
+        <section class="box">3</section>
+        <section class="wrap">
+            <div class="container">
+                <img src="../banyanTree_images/main_bg_new2.jpg" alt="">
+                <img src="../banyanTree_images/main_con2_bg.jpg" alt="">
+                <img src="../banyanTree_images/main_con3_bg.jpg" alt="">
+                <img src="../banyanTree_images/main_con5_bg-.jpg" alt="">
+            </div>
+        </section>
+        <section class="box">5</section>
+    </main>
+    <script>
+        gsap.registerPlugin(ScrollTrigger)
+
+        const container = document.querySelector('.container')
+        const scrollW = container.offsetWidth - window.innerWidth;
+        console.log(container.offsetWidth, scrollW)
+
+        //scrollTrigger
+        gsap.utils.toArray('.wrap').forEach((obj)=>{
+            console.log(obj)
+            //timeline 애니메이션 관리 + fromTo 연결동작
+            const banyan = gsap.timeline({
+                scrollTrigger:{
+                    trigger:obj,
+                    start:'center center',
+                    end:()=>'+=' + scrollW,//가로스크롤 종료 지점
+                    scrub:true,//마우스휠 동작에 맞추기
+                    pin:true,//고정
+                    anticipatePin:1,//gsap권장옵션(화면튀는현상막기)
+                },defaults:{ease:'none'},//속도 균일
+            })
+            banyan.fromTo(obj.querySelector('.container'),{
+                x:0,
+            },{
+                x:-scrollW
+            })
+        })
+
+        //const timer = setInterval(()=>{})
+        //timer.속성.함수
+
+    </script>
+</body>
+</html>
