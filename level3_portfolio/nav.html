@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles/reset.css">
+    <style>
+        header {
+            max-width:1200px; min-width:320px; height:60px; margin:0 auto;
+            background-color:#f9f9f9;
+            display:flex; justify-content:space-between; align-items: center;
+            position: relative;
+        }
+        header #pc_nav {
+            position:absolute; left:50%; transform: translateX(-50%);
+        }
+        header #pc_nav .gnb {display:flex; gap:20px;}
+        header #pc_nav .gnb > li {position: relative;}
+        header #pc_nav .gnb > li:hover .lnb {display:flex;}
+        header #pc_nav .gnb > li > .lnb {
+            position: absolute; left:0; top:60px;
+            display:flex;
+            background:#444; display:none; /* sub숨기기 */
+        }
+        header .right_wrap .m_nav_wrap {display:none;}/* m숨기기 */
+        /* 모바일 꾸미기 */
+        header .right_wrap .m_nav_wrap #m_nav{
+            position: absolute; right:0; top:60px;
+            background:#555;
+        }
+        header .right_wrap .m_nav_wrap #m_nav .gnb{}
+        header .right_wrap .m_nav_wrap #m_nav .gnb .lnb{display: none;}
+        /* 반응형 1024 이하 모바일 모습으로 변하기 */
+        @media screen and (max-width:1024px) {
+            /* pc nav 숨기기, m nav 보이기 */
+            header #pc_nav {display:none;}
+            header .right_wrap .m_nav_wrap {display:block;}
+            header .right_wrap .right_menu .contact {display:none;}
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1><a href="#"><img src="#" alt="로고"></a></h1>
+        <nav id="pc_nav"><!-- 데스크탑 ver -->
+            <ul class="gnb">
+                <li><a href="#">About</a>
+                    <ul class="lnb">
+                        <li><a href="#">
+                            <img src="#" alt="">
+                            <em>OUR JOURNEY</em>
+                            <span class="view_more">VIEW MORE</span>
+                        </a></li>
+                        <li><a href="#">
+                            <img src="#" alt="">
+                            <em>GLOBAL ACTIVATIONS</em>
+                            <span class="view_more">VIEW MORE</span>
+                        </a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Products</a></li>
+                <li><a href="#">Feed</a></li>
+                <li><a href="#">Find JINRO</a></li>
+                <li><a href="#">Vibe test</a></li>
+            </ul>
+        </nav>
+        <div class="right_wrap">
+            <div class="right_menu">
+                보조메뉴(언어, contact, 로그인, 회원가입, 장바구니 등)
+                <a href="#" class="contact">CONTACT</a>
+            </div>
+            <div class="m_nav_wrap">
+                <button type="button" id="m_nav_link">메뉴열기</button>
+                <nav id="m_nav"><!-- mobile+tablet ver -->
+                    <!-- JS 처리 -->
+                    <!-- .gnb 붙 -->
+                    <!-- contact 붙 -->
+                </nav>
+            </div>    
+        </div>
+    </header>
+    <script>
+
+        const pcNav = document.querySelector('#pc_nav') //복사할 요소잡기
+        const mNav = document.querySelector('#m_nav') //붙혀넣기할 요소잡기
+        const pcContact = document.querySelector('.right_menu .contact') //복사대상
+        const contactClone = pcContact.cloneNode(true) //요소복제
+        const gnbClone = pcNav.children[0].cloneNode(true) //요소복제(자식,자손까지 포함하려면 true)
+
+        console.log(pcNav, gnbClone,contactClone)
+
+        mNav.appendChild(gnbClone); //mNav요소의 마지막자식 위치에 gnbClone 삽입
+        mNav.appendChild(contactClone); //mNav요소의 마지막자식 위치에 contact 삽입
+
+        /* gnb 메뉴 클릭 시 lnb 보이기, 다시 클릭 시 숨기기 */
+        const mGnb = document.querySelectorAll('#m_nav .gnb li')
+        let gnbBoolean = false
+        for(let i of mGnb){
+            i.addEventListener('click',(e)=>{
+                e.preventDefault();
+                gnbBoolean = !gnbBoolean;
+                gnbBoolean ?
+                    i.children[1].style.display = 'flex' :
+                    i.children[1].style.display = 'none'
+            })
+        }
+
+    </script>
+</body>
+</html>
