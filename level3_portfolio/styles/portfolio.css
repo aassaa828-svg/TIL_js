@@ -1,0 +1,12 @@
+#wrap main {}
+#wrap main h1 {
+    height:80vh; text-align: center; /* line-height:80vh; */
+    font-size:2rem; font-weight:700; padding-top:40%;
+    line-height:1.5;
+}
+#wrap main #web_project {
+    border:2px solid #000;
+    width:1000px; height:450px;
+}
+#wrap main #web_project .swiper-wrapper .swiper-slide:nth-child(odd) {background: purple;}
+#wrap main #web_project .swiper-wrapper .swiper-slide:nth-child(even) {background: pink;}

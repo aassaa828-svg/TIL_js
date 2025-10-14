@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>포트폴리오-김재건</title>
+    <link rel="stylesheet" href="./styles/reset.css">
+    <!--플러그인 필수 css cdn 연결-->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <!--플러그인 필수 JS cdn 연결-->
+    <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <!-- 개별 작업 css, js -->
+    <link rel="stylesheet" href="./styles/common.css"><!-- 통합레이아웃 -->
+    <link rel="stylesheet" href="./styles/portfolio.css"><!-- main css -->
+    <script src="./scripts/portfolio.js" defer></script>
+</head>
+<body>
+    <div id="wrap">
+        <?php include "./header.php" ?>
+        <main>
+            <h1>웹퍼블리셔, 웹디자이너, 프론트엔드개발자<br>
+                포트폴리오 2025</h1>
+            <div class="swiper" id="web_project">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">프로젝트1</div>
+                    <div class="swiper-slide">프로젝트2</div>
+                    <div class="swiper-slide">프로젝트3</div>
+                    <div class="swiper-slide">프로젝트4</div>
+                </div>
+            </div>
+        </main>
+        <?php include "./footer.php" ?>
+    </div>
+</body>
+</html>

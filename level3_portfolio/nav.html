@@ -95,14 +95,14 @@
 
         /* gnb 메뉴 클릭 시 lnb 보이기, 다시 클릭 시 숨기기 */
         const mGnb = document.querySelectorAll('#m_nav .gnb li')
-        let gnbBoolean = false
+        let gnbBoolean = false//sub 초기숨기기란 뜻으로 거짓논리데이터삽입
         for(let i of mGnb){
             i.addEventListener('click',(e)=>{
-                e.preventDefault();
-                gnbBoolean = !gnbBoolean;
-                gnbBoolean ?
-                    i.children[1].style.display = 'flex' :
-                    i.children[1].style.display = 'none'
+                e.preventDefault(); //a 기능 막기
+                gnbBoolean = !gnbBoolean; //sub 논리값 반전
+                gnbBoolean ? //삼항조건연산자
+                    i.children[1].style.display = 'flex' : //조건이 참
+                    i.children[1].style.display = 'none' //조건이 거짓
             })
         }
 
